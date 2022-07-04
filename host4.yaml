@@ -10,9 +10,9 @@ volumes:
   peer1.org2.example.com:
 
 networks:
-  byfn:
+  poxa:
     external:
-      name: first-network
+      name: first-networkk
 
 services:
 
@@ -24,7 +24,7 @@ services:
       - ORDERER_GENERAL_LISTENPORT=10050
     container_name: orderer4.example.com
     networks:
-    - byfn
+    - poxa
     volumes:
         - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
         - ./crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp:/var/hyperledger/orderer/msp
@@ -39,5 +39,5 @@ services:
       file:  base/docker-compose-base.yaml
       service: peer1.org2.example.com
     networks:
-      - byfn
+      - poxa
 
